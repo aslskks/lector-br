@@ -2,6 +2,7 @@ import cv2
 import tkinter as tk
 from tkinter import filedialog
 from pyzbar.pyzbar import decode
+import sys
 
 def leer_barcodes(imagen, codigos_leidos):
     codigos = decode(imagen)
@@ -51,4 +52,7 @@ def main():
     ventana.mainloop()
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except KeyboardInterrupt:
+        sys.exit()
