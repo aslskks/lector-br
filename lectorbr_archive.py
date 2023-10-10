@@ -2,7 +2,6 @@ import cv2
 import tkinter as tk
 from tkinter import filedialog
 from pyzbar.pyzbar import decode
-import sys
 
 def leer_barcodes(imagen, codigos_leidos):
     codigos = decode(imagen)
@@ -14,6 +13,7 @@ def leer_barcodes(imagen, codigos_leidos):
         if datos not in codigos_leidos:
             print(f'Tipo: {tipo}, Datos: {datos}')
             codigos_leidos.add(datos)
+            out_put(datos)
 
         rect = codigo.rect
 
@@ -43,6 +43,11 @@ def abrir_archivo():
         cv2.waitKey(0)
         cv2.destroyAllWindows()
 
+def out_put(datos):
+    filename = 'brcode.txt'
+    with open(filename, 'a') as file:
+        file.write(datos + '\n')
+
 def main():
     ventana = tk.Tk()
     ventana.geometry("300x100")
@@ -52,7 +57,4 @@ def main():
     ventana.mainloop()
 
 if __name__ == "__main__":
-    try:
-        main()
-    except KeyboardInterrupt:
-        sys.exit()
+    main()
