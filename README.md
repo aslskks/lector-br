@@ -15,6 +15,7 @@
 &nbsp;&nbsp;pip install -r requirements.txt
 
 &nbsp;2. **Ejecutar:**
+
 &nbsp;&nbsp;python lectorbr_archive.py  
 &nbsp;&nbsp;para archivos png y jpg  
 &nbsp;&nbsp;python lectorbr_camera.py  
